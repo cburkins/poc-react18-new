@@ -1,27 +1,30 @@
 {
-  "name": "poc-react18",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cburkins/poc-react18-new.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cburkins/poc-react18-new/issues"
-  },
-  "homepage": "https://github.com/cburkins/poc-react18-new#readme",
-  "dependencies": {
-    "express": "^4.18.1"
-  },
-  "devDependencies": {
-    "concurrently": "^7.3.0",
-    "dotenv": "^16.0.1"
-  }
+    "name": "poc-react18",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && env REACT_APP_ENV=dev npm run build",
+        "start-dev": "concurrently \"npm run start\" \"npm run start-client\"",
+        "start": "node server.js",
+        "start-client": "cd client && REACT_APP_ENV=localhost npm start"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/cburkins/poc-react18-new.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/cburkins/poc-react18-new/issues"
+    },
+    "homepage": "https://github.com/cburkins/poc-react18-new#readme",
+    "dependencies": {
+        "express": "^4.18.1"
+    },
+    "devDependencies": {
+        "concurrently": "^7.3.0",
+        "dotenv": "^16.0.1"
+    }
 }
